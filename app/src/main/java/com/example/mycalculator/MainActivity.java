@@ -56,15 +56,11 @@ public class MainActivity extends AppCompatActivity {
         int cursorPos = EditTextCalculator.getSelectionStart();
         String leftStr = oldStr.substring(0,cursorPos);
         String rightStr =oldStr.substring(cursorPos);
-        if (getString(R.string.display).equals(EditTextCalculator.getText().toString())){
 
-            EditTextCalculator.setText(strToAdd);
-            EditTextCalculator.setSelection(cursorPos+1);
-        }
-        else{
+
             EditTextCalculator.setText(String.format("%s%s%s",leftStr,strToAdd,rightStr));
-            EditTextCalculator.setSelection(cursorPos+1);
-        }
+            EditTextCalculator.setSelection(cursorPos+strToAdd.length());
+
 
     }
 
@@ -115,6 +111,14 @@ public class MainActivity extends AppCompatActivity {
     }
     public void PlusMin_BTN(View v){
         updateText("-");
+
+    }
+    public void ParOpenBTN(View v){
+        updateText("(");
+
+    }
+    public void ParCloseBTN(View v){
+        updateText(")");
 
     }
     public void Par_BTN(View v) {
@@ -196,6 +200,65 @@ public class MainActivity extends AppCompatActivity {
         //updateText("");
         EditTextCalculator.setText("");
     }
+    public void trigSinBtnPush(View view){
+        updateText("sin(");
 
+    }
+    public void trigCosBtnPush(View view){
+        updateText("cos(");
+
+    }
+    public void trigTanBtnPush(View view){
+        updateText("tan(");
+
+    }
+    public void trigArcSinBtnPush(View view){
+        updateText("arcsin(");
+
+    }
+    public void trigArcCosBtnPush(View view){
+        updateText("arccos(");
+
+    }
+    public void trigArcTanBtnPush(View view){
+        updateText("arctan(");
+
+    }
+    public void NatLogBtnPush(View view){
+        updateText("ln(");
+
+    }
+    public void PiBtnPush(View view){
+        updateText("pi");
+
+    }
+    public void LogTextBtnPush(View view){
+        updateText("log(");
+
+    }
+    public void SquareRootBtnPush(View view){
+        updateText("sqrt(");
+
+    }
+    public void AbsValBtnPush(View view){
+        updateText("abs(");
+
+    }
+    public void ETextBtnPush(View view){
+        updateText("e");
+
+    }
+    public void XSquareBtnPush(View view){
+        updateText("^(2)");
+
+    }
+    public void XPowerYBtnPush(View view){
+        updateText("^(");
+
+    }
+    public void IsPrimeBtnPush(View view){
+        updateText("ispr(");
+
+    }
 
 }

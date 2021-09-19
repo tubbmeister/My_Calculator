@@ -42,7 +42,7 @@
                 android:textSize="30sp" />
 
             <Button
-                android:id="@+id/ParaBTN"
+                android:id="@+id/OpenBtn"
                 style="@style/Widget.AppCompat.Button.Borderless"
                 android:layout_width="0dp"
                 android:layout_height="70dp"
@@ -55,7 +55,7 @@
                 android:textSize="30sp"/>
 
             <Button
-                android:id="@+id/ExponentBTN"
+                android:id="@+id/CloseBTN"
                 style="@style/Widget.AppCompat.Button.Borderless"
 
                 android:layout_width="0dp"
