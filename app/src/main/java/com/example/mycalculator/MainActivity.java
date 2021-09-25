@@ -1,5 +1,6 @@
 package com.example.mycalculator;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import com.google.android.material.snackbar.Snackbar;
@@ -60,6 +61,17 @@ public class MainActivity extends AppCompatActivity {
 
             EditTextCalculator.setText(String.format("%s%s%s",leftStr,strToAdd,rightStr));
             EditTextCalculator.setSelection(cursorPos+strToAdd.length());
+
+
+    }
+    public void FuelCheckMessage (View view) {
+
+        Intent intent = new Intent(this, FuelCheckActivity.class);
+        //EditText editText = (EditText) findViewById(R.id.editTextTextPersonName);
+       // String message = editText.getText().toString();
+       // intent.putExtra(EXTRA_MESSAGE, message);
+        startActivity(intent);
+
 
 
     }
@@ -166,11 +178,16 @@ public class MainActivity extends AppCompatActivity {
     public void Equals_BTN(View v){
 
         String userExp =EditTextCalculator.getText().toString();
-        String oldAnswer=userExp;
-        userExp=userExp.replaceAll("÷","/");
-        userExp=userExp.replaceAll("×", "*");
-        Expression exp=new Expression(userExp);
-        String result=String.valueOf(exp.calculate());
+
+        try {
+            String oldAnswer = userExp;
+            userExp = userExp.replaceAll("÷", "/");
+            userExp = userExp.replaceAll("×", "*");
+            Expression exp = new Expression(userExp);
+            String result = String.valueOf(exp.calculate());
+
+
+
         EditTextCalculator.setText(result);
         EditTextCalculator.setSelection(result.length());
         BigDecimal improvedAnswer = new BigDecimal(result).stripTrailingZeros(); //gets rid of zeros!
@@ -182,6 +199,13 @@ public class MainActivity extends AppCompatActivity {
         if (oldAnswer.isEmpty()){
             previousCalcTxt.setText("");
             textView3.setText("");
+        }
+        } catch (Exception e) {
+            EditTextCalculator.setText("OOPS!  Check typing..");
+            textView3.setText(userExp);
+            previousCalcTxt.setText("");
+
+
         }
     }
     public void Backspace_BTN(View v){
@@ -233,7 +257,7 @@ public class MainActivity extends AppCompatActivity {
 
     }
     public void LogTextBtnPush(View view){
-        updateText("log(");
+        updateText("log10(");
 
     }
     public void SquareRootBtnPush(View view){

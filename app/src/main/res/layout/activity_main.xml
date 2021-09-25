@@ -49,10 +49,10 @@
                 android:layout_margin="5dp"
                 android:layout_weight="1"
                 android:background="@drawable/circle"
-                android:onClick="Par_BTN"
-                android:text="@string/parentheses"
+                android:onClick="ParOpenBTN"
+                android:text="("
                 android:textColor="#FFFFFF"
-                android:textSize="30sp"/>
+                android:textSize="30sp" />
 
             <Button
                 android:id="@+id/CloseBTN"
@@ -63,8 +63,8 @@
                 android:layout_margin="5dp"
                 android:layout_weight="1"
                 android:background="@drawable/circle"
-                android:onClick="Exponent_BTN"
-                android:text="@string/exponent"
+                android:onClick="ParCloseBTN"
+                android:text=")"
                 android:textColor="#FFFFFF"
                 android:textSize="30sp" />
 
@@ -75,7 +75,7 @@
                 android:layout_height="70dp"
                 android:layout_margin="5dp"
                 android:layout_weight="1"
-                android:background="@drawable/circle"
+                android:background="@drawable/circle3"
                 android:onClick="Divide_BTN"
                 android:text="@string/divide"
                 android:textColor="#FFFFFF"
@@ -132,7 +132,7 @@
                 android:layout_height="70dp"
                 android:layout_margin="5dp"
                 android:layout_weight="1"
-                android:background="@drawable/circle"
+                android:background="@drawable/circle3"
                 android:onClick="Multiply_BTN"
                 android:text="@string/multiply"
                 android:textColor="#FFFFFF"
@@ -189,7 +189,7 @@
                 android:layout_height="70dp"
                 android:layout_margin="5dp"
                 android:layout_weight="1"
-                android:background="@drawable/circle"
+                android:background="@drawable/circle3"
                 android:onClick="Subtract_BTN"
                 android:text="@string/subtract"
                 android:textColor="#FFFFFF"
@@ -246,7 +246,7 @@
                 android:layout_height="70dp"
                 android:layout_margin="5dp"
                 android:layout_weight="1"
-                android:background="@drawable/circle"
+                android:background="@drawable/circle3"
                 android:onClick="Add_BTN"
                 android:text="@string/add"
                 android:textColor="#FFFFFF"
@@ -388,6 +388,15 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.06999999" />
+
+    <Button
+        android:id="@+id/FuelCheckBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="FuelCheckMessage"
+        android:text="Fuel Check"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/EditTextCalculator" />
 </androidx.constraintlayout.widget.ConstraintLayout>
 
 
