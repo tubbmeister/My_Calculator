@@ -2,9 +2,11 @@ package com.example.mycalculator;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 
@@ -105,6 +107,12 @@ public class FuelCheckActivity extends AppCompatActivity implements View.OnClick
         TopLineAnswer.setText(String.valueOf(DoSums1) + " kg");
         BottomLineAnswer.setText(String.valueOf(DoSums2) + " kg");
 
+        InputMethodManager inputManager = (InputMethodManager)
+                getSystemService(Context.INPUT_METHOD_SERVICE);
+
+        inputManager.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(),
+                InputMethodManager.HIDE_NOT_ALWAYS);
+
     }
     public void FuelCheck(View view){
 
@@ -130,6 +138,11 @@ public class FuelCheckActivity extends AppCompatActivity implements View.OnClick
         int RightTankInt = (Integer.parseInt(RightTank.getText().toString()));
         int DoSums3 = (LeftFuelInt+CenterTankInt+RightTankInt);
         TotalFuelEdit.setText(String.valueOf(DoSums3));
+        InputMethodManager inputManager = (InputMethodManager)
+                getSystemService(Context.INPUT_METHOD_SERVICE);
+
+        inputManager.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(),
+                InputMethodManager.HIDE_NOT_ALWAYS);
 
     }
 }
