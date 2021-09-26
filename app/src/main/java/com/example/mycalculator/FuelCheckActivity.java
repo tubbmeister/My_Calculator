@@ -11,8 +11,8 @@ import android.widget.EditText;
 public class FuelCheckActivity extends AppCompatActivity implements View.OnClickListener {
 
 
-    EditText TotalFuelEdit, TopLineEdit,BottomLineEdit,TopLineAnswer, BottomLineAnswer;
-    Button CalcFuelBtn;
+    EditText TotalFuelEdit, TopLineEdit,BottomLineEdit,TopLineAnswer, BottomLineAnswer,LeftTank,CenterTank,RightTank;
+    Button CalcFuelBtn,TotalBtn;
 
 
 
@@ -21,6 +21,11 @@ public class FuelCheckActivity extends AppCompatActivity implements View.OnClick
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_fuel_check);
+
+
+        LeftTank=findViewById(R.id.LeftTank);
+        CenterTank=findViewById(R.id.CentreTank);
+        RightTank=findViewById(R.id.RightTank);
 
         TotalFuelEdit=findViewById(R.id.TotalFuelEdit);
         TopLineEdit=findViewById(R.id.TopLineEdit);
@@ -32,6 +37,9 @@ public class FuelCheckActivity extends AppCompatActivity implements View.OnClick
         TopLineEdit.setOnClickListener((View.OnClickListener) this);
         BottomLineEdit.setOnClickListener((View.OnClickListener) this);
         BottomLineAnswer.setOnClickListener(this);
+        LeftTank.setOnClickListener(this);
+        CenterTank.setOnClickListener(this);
+        RightTank.setOnClickListener(this);
 
 
 
@@ -49,6 +57,15 @@ public class FuelCheckActivity extends AppCompatActivity implements View.OnClick
                 break;
             case R.id.BottomLineEdit:
                 BottomLineEdit.getText().clear(); //or you can use editText.setText("");
+                break;
+            case R.id.LeftTank:
+                LeftTank.getText().clear(); //or you can use editText.setText("");
+                break;
+            case R.id.CentreTank:
+                CenterTank.getText().clear(); //or you can use editText.setText("");
+                break;
+            case R.id.RightTank:
+                RightTank.getText().clear(); //or you can use editText.setText("");
                 break;
 
         }
@@ -87,6 +104,32 @@ public class FuelCheckActivity extends AppCompatActivity implements View.OnClick
         // test.setText(String.valueOf(DoSums));
         TopLineAnswer.setText(String.valueOf(DoSums1) + " kg");
         BottomLineAnswer.setText(String.valueOf(DoSums2) + " kg");
+
+    }
+    public void FuelCheck(View view){
+
+        String LeftFuelString = LeftTank.getText().toString();
+        if (TextUtils.isEmpty(LeftFuelString)) {
+            LeftTank.setError("Add Fuel!");
+            return;
+        }
+        String CenterTankString = CenterTank.getText().toString();
+        if (TextUtils.isEmpty(CenterTankString)) {
+            CenterTank.setError("Add Fuel!");
+            return;
+        }
+        String RightTankString = RightTank.getText().toString();
+        if (TextUtils.isEmpty(RightTankString)) {
+            RightTank.setText("Add Fuel!");
+            return;
+
+        }
+        int LeftFuelInt = (Integer.parseInt(LeftTank.getText().toString()));
+
+        int CenterTankInt = ((Integer.parseInt(CenterTank.getText().toString())));
+        int RightTankInt = (Integer.parseInt(RightTank.getText().toString()));
+        int DoSums3 = (LeftFuelInt+CenterTankInt+RightTankInt);
+        TotalFuelEdit.setText(String.valueOf(DoSums3));
 
     }
 }
