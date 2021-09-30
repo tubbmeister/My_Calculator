@@ -4,4 +4,5 @@
         android:drawable="@drawable/vert_line" /> <!-- pressed -->
 
     <item android:drawable="@drawable/hor_line" /> <!-- default -->
+
 </selector>
